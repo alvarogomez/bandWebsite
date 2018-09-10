@@ -1,0 +1,44 @@
+/*-------Main colors--------*/
+$white: #ffffff;
+$grey-bg: #f9f9f9;
+$whitey-grey: #dfdfdf;
+$grey-regular: #c8c8c8;
+$grey-silver: #898989;
+$grey: #555d5d;
+$grey-dark: #333737;
+$main-text-color: #222;
+$headings-color: $main-text-color;
+
+$primary: #0f7272;
+$primary-light: #128f8f;
+$primary-bg: #eef5f5;
+$primary-dark: #0c5555;
+
+$secondary: #fb3304;
+$secondary-light: #fc4b22;
+$secondary-bg: #fef0ed;
+$secondary-dark: #cd2d08;
+$secondary-darker: #da2d04;
+
+$tertiary: #e69912;
+$tertiary-light: #efa729;
+$tertiary-bg: #fdf7ee;
+$tertiary-dark: #c88510;
+
+/*-------Complementary colors--------*/
+$red: #ff0000;
+$grey-border: $whitey-grey;
+$slider-dots-background: $primary;
+$error: #fc4b22;
+$warning: $tertiary-light;
+$highlight: #fadb09;
+$disable: #97999c;
+$crown: #e7cb69;
+$subscription: #ab5ceb;
+$fast-shipping: #54bdf8;
+/*-------------Shadows----------------*/
+$light-shadow: rgba(0, 0, 0, 0.1);
+$medium-shadow: rgba(0, 0, 0, 0.2);
+
+$background-nav-header: rgba(255, 255, 255, 0.3);
+$nav-icon-color: $main-text-color;

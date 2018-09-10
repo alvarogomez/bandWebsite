@@ -1,0 +1,190 @@
+/*---------mixin to convert px to rem and also give fallback---------*/
+$base-font-size: 14px;
+@function toRem($size) {
+  $remSize: $size / $base-font-size;
+  @return #{$remSize}rem;
+}
+/*--------FONTS RULES------*/
+$font-family-body: 'Roboto', Roboto, Helvetica, Arial, sans-serif;
+$font-family-headers: 'Bungee Shade', Roboto, Helvetica, Arial, sans-serif;
+$default-heading-text-alignment: center;
+/*-------large (1024-768)---------*/
+//(fs)font sizes
+$h1-fs: toRem(36px);
+$h2-fs: toRem(32px);
+$h3-fs: toRem(26px);
+$h4-fs: toRem(22px);
+$h5-fs: toRem(20px);
+$h6-fs: toRem(18px);
+$subheader-fs: toRem(14px);
+$body-text-buttons-fs: 14px;
+$copy-small-fs: toRem(12px);
+$copy-extra-small-fs: toRem(10px);
+//(fs)font sizes
+$h1-mobile-fs: toRem(28px);
+$h2-mobile-fs: toRem(26px);
+$h3-mobile-fs: toRem(24px);
+$h4-mobile-fs: toRem(22px);
+$h5-mobile-fs: toRem(20px);
+$h6-mobile-fs: toRem(18px);
+$subheader-mobile-fs: toRem(14px);
+$body-text-buttons-mobile-fs: toRem(14px);
+$copy-small-mobile-fs: toRem(12px);
+$copy-extra-small-mobile-fs: toRem(10px);
+//(lh) line heights
+$h1-lh: toRem(40px);
+$h2-lh: toRem(36px);
+$h3-lh: toRem(34px);
+$h4-lh: toRem(28px);
+$h5-lh: toRem(26px);
+$h6-lh: toRem(24px);
+$subheader-lh: toRem(18px);
+$body-text-buttons-lh: toRem(16px);
+$copy-small-lh: toRem(16px);
+$copy-extra-small-lh: toRem(14px);
+//(lh) line heights
+$h1-mobile-lh: toRem(34px);
+$h2-mobile-lh: toRem(30px);
+$h3-mobile-lh: toRem(28px);
+$h4-mobile-lh: toRem(26px);
+$h5-mobile-lh: toRem(24px);
+$h6-mobile-lh: toRem(22px);
+$subheader-mobile-lh: toRem(16px);
+$body-text-buttons-mobile-lh: toRem(14px);
+$copy-small-mobile-lh: toRem(12px);
+$copy-extra-small-mobile-lh: toRem(10px);
+//(fw)font weights
+$h1-fw: 700;
+$h2-fw: 700;
+$h3-fw: 700;
+$h4-fw: 700;
+$h5-fw: 700;
+$h6-fw: 700;
+$subheader-fw: 600;
+$body-text-buttons-fw: 400;
+$copy-small-fw: 400;
+$copy-extra-small-fw: 400;
+//(fw)font weights
+$h1-mobile-fw: 700;
+$h2-mobile-fw: 700;
+$h3-mobile-fw: 700;
+$h4-mobile-fw: 700;
+$h5-mobile-fw: 700;
+$h6-mobile-fw: 700;
+$subheader-mobile-fw: 600;
+$body-text-buttons-mobile-fw: 400;
+$copy-small-mobile-fw: 400;
+$copy-extra-small-mobile-fw: 400;
+
+html {
+  font-size: $base-font-size;
+  font-family: $font-family-body;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font-family-headers;
+  text-align: $default-heading-text-alignment;
+  color: $headings-color;
+}
+h1 {
+  font-size: $h1-mobile-fs;
+  font-weight: $h1-mobile-fw;
+  line-height: $h1-mobile-lh;
+}
+h2 {
+  font-size: $h2-mobile-fs;
+  font-weight: $h2-mobile-fw;
+  line-height: $h2-mobile-lh;
+}
+h3 {
+  font-size: $h3-mobile-fs;
+  font-weight: $h3-mobile-fw;
+  line-height: $h3-mobile-lh;
+}
+h4 {
+  font-size: $h4-mobile-fs;
+  font-weight: $h4-mobile-fw;
+  line-height: $h4-mobile-lh;
+}
+h5 {
+  font-size: $h5-mobile-fs;
+  font-weight: $h5-mobile-fw;
+  line-height: $h5-mobile-lh;
+}
+h6 {
+  font-size: $h6-mobile-fs;
+  font-weight: $h6-mobile-fw;
+  line-height: $h6-mobile-lh;
+}
+.subheader {
+  font-size: $subheader-mobile-fs;
+  font-weight: $subheader-mobile-fw;
+  line-height: $subheader-mobile-lh;
+  font-family: $font-family-headers;
+  color: $main-text-color;
+}
+.copy-small {
+  font-size: $copy-small-mobile-fs;
+  font-weight: $copy-small-mobile-fw;
+  line-height: $copy-small-mobile-lh;
+  font-family: $font-family-body;
+  color: $main-text-color;
+}
+.copy-extra-small {
+  font-size: $copy-extra-small-mobile-fs;
+  font-weight: $copy-extra-small-mobile-fw;
+  line-height: $copy-extra-small-mobile-lh;
+  font-family: $font-family-body;
+  color: $main-text-color;
+}
+@media screen and (min-width: $small) {
+  h1 {
+    font-size: $h1-fs;
+    font-weight: $h1-fw;
+    line-height: $h1-lh;
+  }
+  h2 {
+    font-size: $h2-fs;
+    font-weight: $h2-fw;
+    line-height: $h2-lh;
+  }
+  h3 {
+    font-size: $h3-fs;
+    font-weight: $h3-fw;
+    line-height: $h3-lh;
+  }
+  h4 {
+    font-size: $h4-fs;
+    font-weight: $h4-fw;
+    line-height: $h4-lh;
+  }
+  h5 {
+    font-size: $h5-fs;
+    font-weight: $h5-fw;
+    line-height: $h5-lh;
+  }
+  h6 {
+    font-size: $h6-fs;
+    font-weight: $h6-fw;
+    line-height: $h6-lh;
+  }
+  .subheader {
+    font-size: $subheader-fs;
+    font-weight: $subheader-fw;
+    line-height: $subheader-lh;
+  }
+  .copy-small {
+    font-size: $copy-small-fs;
+    font-weight: $copy-small-fw;
+    line-height: $copy-small-lh;
+  }
+  .copy-extra-small {
+    font-size: $copy-extra-small-fs;
+    font-weight: $copy-extra-small-fw;
+    line-height: $copy-extra-small-lh;
+  }
+}
