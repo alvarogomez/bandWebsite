@@ -27,33 +27,19 @@
         <img src="../assets/bassamp.png" />
       </div>
     </div>
-    <div class="rss-container">
-      <div class="item">
-        <a href="">
-          <img src="../assets/Facebook.png" />
-        </a>
-      </div>
-      <div class="item">
-        <a href="https://www.instagram.com/lazystacyband/?hl=eshttps://www.instagram.com/lazystacyband/?hl=es">
-          <img src="../assets/Instagram.png" />
-        </a>
-      </div>
-      <div class="item">
-        <a href="">
-          <img src="../assets/Youtube.png" />
-        </a>
-      </div>
-    </div>
+    <rss-footer></rss-footer>
   </section>
 
 </template>
 
 <script lang="js">
 import NavigationHeader from '../components/NavigationHeader';
+import RssFooter from '../components/RssFooter';
 export default {
   name: 'home',
   components: {
-    NavigationHeader
+    NavigationHeader,
+    RssFooter
   },
   props: [],
   mounted() {},
@@ -138,25 +124,6 @@ export default {
           font-weight: 700;
           margin-bottom: 1rem;
         }
-        img {
-          width: 100%;
-        }
-      }
-    }
-    .rss-container {
-      position: fixed;
-      height: 95px;
-      bottom: 0px;
-      left: 0;
-      background: rgba(0,0,0,0.5);
-      display: flex;
-      width: 100vw;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 0;
-      .item {
-        cursor: pointer;
-        padding: 0 2rem;
         img {
           width: 100%;
         }
