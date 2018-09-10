@@ -36,6 +36,7 @@ export default {
 <style scoped lang="scss">
   .rss-footer {
     position: fixed;
+    z-index: 0;
     height: 95px;
     bottom: 0px;
     left: 0;
