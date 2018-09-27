@@ -10,11 +10,24 @@ export default {
   name: 'App',
   mounted() {
     setInterval(this.updateGradient, 10);
+    this.$eventBus.$on('enter-psychedelic-mode', () => {
+      if (!this.psychedelicMode) {
+        this.psychedelicMode = true;
+        let backupSpeed = this.gradientSpeed;
+        this.gradientSpeed = 0.050;
+        var self = this;
+        setTimeout(function(){
+          self.gradientSpeed = backupSpeed;
+          self.psychedelicMode = false;
+        }, 5000)
+      }
+    });
   },
   data() {
     return {
-      gradientSpeed: 0.003,
       gradient: '',
+      gradientSpeed: 0.003,
+      psychedelicMode: false,
       step: 0,
       colorIndices : [0, 1, 2, 3],
       colors : [[247, 23, 53], [65, 234, 212], [255, 159, 28], [230, 232, 230]]
@@ -44,7 +57,7 @@ export default {
 
       this.$refs.appCont.style.background = 'repeating-radial-gradient(' + color1 + ',' + color2 + ')';
       this.step += this.gradientSpeed;
-      
+
       if (this.step >= 1) {
         this.step %= 1;
         this.colorIndices[0] =this.colorIndices[1];

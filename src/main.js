@@ -7,7 +7,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);
-
+Vue.prototype.$eventBus = new Vue();
 Vue.config.productionTip = false;
 
 /* eslint-disable no-new */

@@ -1,9 +1,9 @@
 <template lang="html">
 
   <section class="home">
-    <navigation-header></navigation-header>
+    <navigation-header @mush="clickPsych"></navigation-header>
     <div class="heading">
-      <h1>Lazy Stacy</h1>
+      <h1 v-bind:class="{ psych: psychedelicMode }" >Lazy Stacy</h1>
       <span class="copy-small">Your next favourite Power-Trio</span>
       <p>
         Check out the band's website to discover info and listen and watch the groups multimedia.<br />
@@ -35,19 +35,33 @@
 <script lang="js">
 import NavigationHeader from '../components/NavigationHeader';
 import RssFooter from '../components/RssFooter';
+
 export default {
   name: 'home',
   components: {
     NavigationHeader,
     RssFooter
   },
-  props: [],
-  mounted() {},
   data() {
-    return {};
+    return {
+      psychedelicMode: false
+    }
   },
-  methods: {},
-  computed: {}
+  methods: {
+    clickPsych() {
+      this.$emit('home-on-psych');
+    },
+  },
+  props: [],
+  mounted() {
+    this.$eventBus.$on('enter-psychedelic-mode', () => {
+      this.psychedelicMode = true;
+      var self = this;
+      setTimeout(function(){
+        self.psychedelicMode = false;
+      }, 5000)
+    });
+  }
 };
 </script>
 
@@ -58,22 +72,26 @@ export default {
     min-height: 100vh;
     width: 100vw;
     position: relative;
-    $homeShadow: 5px 1px 5px 1px rgba(0,0,0,0.2);
     .heading {
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: center;
       padding: 2rem $lateral-padding-mobile;
-      // border-top: 2px dotted $main-text-color;
-      // border-bottom: 2px dotted $main-text-color;
+      border-top: 2px dotted $main-text-color;
+      border-bottom: 2px dotted $main-text-color;
       margin-left: -$lateral-padding-mobile;
       margin-right: -$lateral-padding-mobile;
-      box-shadow: 5px 1px 5px 1px rgba(0,0,0,0.2);
       h1 {
         font-size: 40px;
         width: 100%;
         margin-bottom: 1.5rem;
+        &.psych {
+          animation-name: logo-psych;
+          animation-duration: 2.5s;
+          animation-iteration-count: infinite;
+          transition: transform 0.2s linear;
+        }
       }
       p {
         font-size: 16px;
@@ -95,7 +113,6 @@ export default {
       padding-bottom: 1rem;
       img {
         width: 100%;
-        box-shadow: $homeShadow;
       }
     }
     .trio-container {
@@ -105,7 +122,6 @@ export default {
       margin: -$lateral-padding-mobile;
       margin-top: 0;
       margin-bottom: 0;
-      box-shadow: $homeShadow;
       &:after {
         content: "";
         clear: both;
@@ -132,6 +148,18 @@ export default {
           width: 100%;
         }
       }
+    }
+  }
+  @keyframes logo-psych {
+    0% {
+    }
+    25% {
+      transform: scale(1.1) translateX(-1rem);
+    }
+    75% {
+      transform: scale(1.2) translateX(1rem);
+    }
+    100% {
     }
   }
 </style>

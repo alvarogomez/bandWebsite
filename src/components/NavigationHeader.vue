@@ -1,7 +1,7 @@
 <template lang="html">
 
-  <section class="navigation-header" @click="$emit('eventotest')">
-    <div class="hamburger" v-on:click="clickedHamburger()">
+  <section class="navigation-header">
+    <div class="hamburger" @click="clickedHamburger()">
       <div id="nav-icon2" v-bind:class="{ open : isUncollapsed }">
         <span></span>
         <span></span>
@@ -11,7 +11,7 @@
         <span></span>
       </div>
     </div>
-    <div class="mushroom" v-on:click="clickedMushroom">
+    <div v-bind:class="{ psych: psychedelicMode }" class="mushroom" v-on:click="clickedMushroom">
       <img src="../assets/mushroom.png" alt="mushroom">
     </div>
     <transition name="slide">
@@ -49,10 +49,19 @@
 export default {
   name: 'navigation-header',
   props: ['iconType'],
-  mounted() {},
+  mounted() {
+    this.$eventBus.$on('enter-psychedelic-mode', () => {
+      this.psychedelicMode = true;
+      var self = this;
+      setTimeout(function(){
+        self.psychedelicMode = false;
+      }, 5000)
+    });
+  },
   data() {
     return {
-      collapsed: false
+      collapsed: false,
+      psychedelicMode: false,
     };
   },
   methods: {
@@ -60,8 +69,7 @@ export default {
       this.collapsed = !this.collapsed;
     },
     clickedMushroom() {
-      console.log('setita')
-      this.$emit('mush')
+      this.$eventBus.$emit('enter-psychedelic-mode');
     }
   },
   computed: {
@@ -93,6 +101,12 @@ export default {
       animation-duration: 2s;
       animation-iteration-count: infinite;
       transition: transform 0.2s cubic-bezier(0, 0, 0.51, 1.29);
+      &.psych {
+        animation-name: mushroom-psych;
+        animation-duration: 0.5s;
+        animation-iteration-count: infinite;
+        transition: transform 0s ease-in-out;
+      }
       img {
         width: 100%;
       }
@@ -144,5 +158,16 @@ export default {
     50% { transform: scale(1.1) }
     100% { transform: scale(1) }
   }
-
+  @keyframes mushroom-psych {
+    0% {
+      color: red;
+      transform: scale(1) rotateZ(0deg);
+    }
+    50% {
+      transform: scale(1.5) rotateZ(180deg);
+    }
+    100% {
+      transform: scale(1) rotateZ(360deg);
+    }
+  }
 </style>
