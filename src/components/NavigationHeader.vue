@@ -1,6 +1,6 @@
 <template lang="html">
 
-  <section class="navigation-header">
+  <section class="navigation-header" @click="$emit('eventotest')">
     <div class="hamburger" v-on:click="clickedHamburger()">
       <div id="nav-icon2" v-bind:class="{ open : isUncollapsed }">
         <span></span>
@@ -11,7 +11,7 @@
         <span></span>
       </div>
     </div>
-    <div class="mushroom">
+    <div class="mushroom" v-on:click="clickedMushroom">
       <img src="../assets/mushroom.png" alt="mushroom">
     </div>
     <transition name="slide">
@@ -58,6 +58,10 @@ export default {
   methods: {
     clickedHamburger() {
       this.collapsed = !this.collapsed;
+    },
+    clickedMushroom() {
+      console.log('setita')
+      this.$emit('mush')
     }
   },
   computed: {

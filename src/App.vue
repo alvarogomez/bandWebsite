@@ -5,11 +5,6 @@
 </template>
 
 <script>
-// var colors = new Array([190, 149, 196], [159, 134, 192], [94, 84, 142], [224, 177, 203]);
-// const colors = new Array([255, 89, 94], [255, 202, 58], [138, 201, 38], [25, 130, 196]);
-// const colors = new Array([20, 218, 209], [156, 174, 169], [120, 133, 133], [160, 141, 186]);
-// const colors = new Array([247, 23, 53], [65, 234, 212], [255, 159, 28], [230, 232, 230]);
-//transition speed
 
 export default {
   name: 'App',
@@ -48,10 +43,8 @@ export default {
       let app = document.querySelector('#app');
 
       this.$refs.appCont.style.background = 'repeating-radial-gradient(' + color1 + ',' + color2 + ')';
-      // this.$refs.appCont.style.background = `radial-gradient(${color1} 0% ${color2} 100%)`;
-      // this.gradient =  color1;
-
       this.step += this.gradientSpeed;
+      
       if (this.step >= 1) {
         this.step %= 1;
         this.colorIndices[0] =this.colorIndices[1];

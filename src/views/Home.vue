@@ -1,7 +1,7 @@
 <template lang="html">
 
   <section class="home">
-    <navigation-header></navigation-header>
+    <navigation-header @eventotest="testevento"></navigation-header>
     <div class="heading">
       <h1>Lazy Stacy</h1>
       <span class="copy-small">Your next favourite Power-Trio</span>
@@ -27,7 +27,7 @@
         <img src="../assets/bassamp.png" />
       </div>
     </div>
-    <rss-footer></rss-footer>
+    <rss-footer @custom="rssClick"></rss-footer>
   </section>
 
 </template>
@@ -42,11 +42,16 @@ export default {
     RssFooter
   },
   props: [],
-  mounted() {},
+  mounted() {
+  },
   data() {
     return {};
   },
-  methods: {},
+  methods: {
+    testevento: function() {
+      console.log('have you ever been experienced?')
+    }
+  },
   computed: {}
 };
 </script>

@@ -1,6 +1,6 @@
 <template lang="html">
 
-  <section class="rss-footer">
+  <section  @click="$emit('custom')" class="rss-footer">
     <div class="item facebook">
       <a href="https://www.facebook.com/lazystacy/?ref=br_rs">
         <img src="../assets/Facebook.png" />
