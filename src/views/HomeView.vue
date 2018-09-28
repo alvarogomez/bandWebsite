@@ -4,30 +4,30 @@
     <navigation-header @mush="clickPsych"></navigation-header>
     <div class="heading">
       <h1 v-bind:class="{ psych: psychedelicMode }" >Lazy Stacy</h1>
-      <span class="copy-small">Your next favourite Power-Trio</span>
-      <p>
+      <span v-bind:class="{ psych: psychedelicMode }" class="copy-small">Your next favourite Power-Trio</span>
+      <p v-bind:class="{ psych: psychedelicMode }">
         Check out the band's website to discover info and listen and watch the groups multimedia.<br />
         Follow us in the RRSS to maintain you updated
       </p>
     </div>
     <div class="home-photo">
-      <img src="../assets/psychedelic.jpg" alt="">
+      <img v-bind:class="{ psych: psychedelicMode }" src="../assets/psychedelic.jpg" alt="">
     </div>
     <div class="trio-container">
-      <div class="item">
+      <div class="item rotate-1" v-bind:class="{ psychrotate: psychedelicMode }">
         <span class="component-name">Álvaro</span>
         <img src="../assets/guitaramp.png" />
       </div>
-      <div class="item">
+      <div class="item rotate-2" v-bind:class="{ psychrotate: psychedelicMode }">
         <span class="component-name">Alberto</span>
         <img src="../assets/alberto.png" />
       </div>
-      <div class="item">
+      <div class="item rotate-3" v-bind:class="{ psychrotate: psychedelicMode }">
         <span class="component-name">Jose</span>
         <img src="../assets/bassamp.png" />
       </div>
     </div>
-    <rss-footer></rss-footer>
+    <rss-footer v-bind:class="{ psychrotaterss: psychedelicMode }"></rss-footer>
   </section>
 
 </template>
@@ -68,6 +68,27 @@ export default {
 <style scoped lang="scss">
   @import '../variables';
   .home {
+    .psychrotate {
+      animation-name: roto-psych;
+      animation-duration: 2.5s;
+      animation-iteration-count: infinite;
+      transition: transform 0.2s linear;
+      &.rotate-1{
+        animation-delay: 0s;
+      }
+      &.rotate-2{
+        animation-delay: 0.25s;
+      }
+      &.rotate-3{
+        animation-delay: 0.5s;
+      }
+    }
+    .psychrotaterss {
+      animation-name: roto-psych-rss;
+      animation-duration: 5s;
+      animation-iteration-count: infinite;
+      transition: transform 0.2s linear;
+    }
     padding: 0 $lateral-padding-mobile;
     min-height: 100vh;
     width: 100vw;
@@ -113,6 +134,12 @@ export default {
       padding-bottom: 1rem;
       img {
         width: 100%;
+        &.psych {
+          animation-name: img-psych;
+          animation-duration: 2.5s;
+          animation-iteration-count: infinite;
+          transition: transform 0.2s linear;
+        }
       }
     }
     .trio-container {
@@ -148,18 +175,6 @@ export default {
           width: 100%;
         }
       }
-    }
-  }
-  @keyframes logo-psych {
-    0% {
-    }
-    25% {
-      transform: scale(1.1) translateX(-1rem);
-    }
-    75% {
-      transform: scale(1.2) translateX(1rem);
-    }
-    100% {
     }
   }
 </style>

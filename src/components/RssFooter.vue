@@ -50,7 +50,7 @@ export default {
       cursor: pointer;
       padding: 0 2rem;
       img {
-        width: 100%;
+        width: 80%;
       }
       animation-name: rss-anim;
       animation-duration: 3s;
@@ -69,7 +69,7 @@ export default {
   }
   @keyframes rss-anim {
     0% { opacity: 1 }
-    50% { opacity: 0.8 }
+    50% { opacity: 0.7 }
     100% { opacity: 1 }
   }
 </style>

@@ -1,3 +1,57 @@
+@keyframes logo-psych {
+  0% {
+  }
+  25% {
+    transform: scale(1.1) translateX(-1rem);
+  }
+  75% {
+    transform: scale(1.2) translateX(1rem);
+  }
+  100% {
+  }
+}
+@keyframes roto-psych {
+  0% {
+  }
+  25% {
+    transform: scale(0.2) rotateZ(90deg);
+  }
+  75% {
+    transform: scale(0.5) rotateZ(270deg);
+  }
+  100% {
+    transform: scale(1) rotateZ(3600deg);
+  }
+}
+@keyframes roto-psych-rss {
+  0% {
+  }
+  25% {
+    transform: rotateY(90deg);
+  }
+  75% {
+    transform: rotateY(270deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+@keyframes img-psych {
+  0% {
+  }
+  25% {
+    transform: scale(0.9);
+    opacity: 0.8;
+  }
+  75% {
+    transform: scale(0.5);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
 #nav-icon2 {
   width: 40px;
   height: 35px;

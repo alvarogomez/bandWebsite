@@ -82,7 +82,6 @@ export default {
 
 <style scoped lang="scss">
 @import '../variables';
-@import 'navIconAnimation';
   .navigation-header {
     z-index: 2;
     position: relative;
